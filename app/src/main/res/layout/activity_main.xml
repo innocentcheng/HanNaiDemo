@@ -22,6 +22,57 @@
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:orientation="horizontal">
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <TextView
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:text="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:text="配电房数量"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <TextView
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:text="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:text="变压器数量"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <TextView
+                android:textColor="#000"
+                android:textSize="20sp"
+                android:text="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:text="监测点数量"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
 
     </LinearLayout>
     <LinearLayout
@@ -29,7 +80,7 @@
         android:layout_marginTop="5dp"
         android:layout_below="@+id/Linear1"
         android:layout_width="match_parent"
-        android:layout_height="70dp">
+        android:layout_height="60dp">
         <LinearLayout
             android:gravity="center"
             android:layout_weight="1"
@@ -43,7 +94,7 @@
                 android:layout_gravity="center_vertical"
                 android:textSize="15sp"
                 android:textColor="@color/colorPrimary"
-                android:text="电量电费"
+                android:text="电量"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>
@@ -61,6 +112,73 @@
                 android:textSize="15sp"
                 android:textColor="@color/colorPrimary"
                 android:text="用电负荷"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:background="#fff"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:src="@mipmap/shouye"
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+            <TextView
+                android:text="首页"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:src="@mipmap/nenghao"
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+            <TextView
+                android:text="能耗"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:src="@mipmap/jiance"
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+            <TextView
+                android:text="监测"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:src="@mipmap/yunwei"
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+            <TextView
+                android:text="运维"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
         </LinearLayout>
