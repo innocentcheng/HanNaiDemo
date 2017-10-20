@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mFragmentBaseLayout.setAdapter(adapter);
         mFragmentBaseLayout.addOnPageChangeListener(this);
         mBottomTab = new LinearLayout[]{mBottomTabShouYe, mBottomTabNengHao, mBottomTabJianCe, mBottomTabYunWei};
-        Tools.logD("tab数组长度 = " + mBottomTab.length);
+//        Tools.logD("tab数组长度 = " + mBottomTab.length);
         for (int i = 0; i < mBottomTab.length; i++) {
             mBottomTab[i].setOnClickListener(this);
         }
