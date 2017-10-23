@@ -39,7 +39,7 @@ public class MainFragment extends Fragment implements ViewPager.OnPageChangeList
     private TextView mCenterTabDLTv;
     private TextView mCenterTabFHTv;
     private Handler mHandler;
-    private boolean mViewLoopStop;
+    private boolean mViewLoopIsRunning;
     private boolean mTopViewAutoChange;
     private MainFragmentTopPagerAdapter mTopPagerAdapter;
     private LinearLayout mTopVpCircle;
@@ -48,7 +48,6 @@ public class MainFragment extends Fragment implements ViewPager.OnPageChangeList
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        mViewLoopStop = false;
         mHandler = new UiHandler();
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         mPDFNum = (TextView) view.findViewById(R.id.fragment_main_pdfnum);
@@ -100,7 +99,6 @@ public class MainFragment extends Fragment implements ViewPager.OnPageChangeList
     public void onResume() {
         Tools.logD("onResume");
         super.onResume();
-        mViewLoopStop = false;
         mTopViewAutoChange = true;
     }
 
@@ -108,29 +106,31 @@ public class MainFragment extends Fragment implements ViewPager.OnPageChangeList
     public void onDestroy() {
         Tools.logD("onDestroy");
         super.onDestroy();
-        mViewLoopStop = true;
+        mViewLoopIsRunning = false;
     }
 
     private void loopDisplay() {
+//        mViewLoopIsRunning = false;
         Tools.logD("进入loop方法 循环前判断线程是否还在 ");
-        Tools.logD("线程是否停止 = " + mViewLoopStop);
-        if (mViewLoopStop) {
+        Tools.logD("进入loop时线程是否正在运行 = " + mViewLoopIsRunning);
+        if (mViewLoopIsRunning) {
             return;
-        } else {
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    mTopViewAutoChange = true;
-                    while (!mViewLoopStop) {
-                        Tools.logD("loopDisplay thread ");
-                        Tools.sleep(3);
-                        if (mTopViewAutoChange) {
-                            mHandler.obtainMessage(CHANGE_LOOP_VIEW).sendToTarget();
-                        }
+        }
+        mViewLoopIsRunning = true;
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                mTopViewAutoChange = true;
+                while (mViewLoopIsRunning) {
+                    Tools.logD("loopDisplay thread ");
+                    Tools.sleep(3);
+                    if (mTopViewAutoChange) {
+                        mHandler.obtainMessage(CHANGE_LOOP_VIEW).sendToTarget();
                     }
                 }
-            }).start();
-        }
+            }
+        }).start();
+
     }
 
     @Override
