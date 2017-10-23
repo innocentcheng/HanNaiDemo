@@ -11,12 +11,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.scada.hannaidemo.R;
 import com.example.scada.hannaidemo.untils.Tools;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, ViewPager.OnPageChangeListener {
     private LinearLayout[] mBottomTab;
+    private TextView[] mBottomTabTv;
+    private TextView mBottomTabShouYeTv;
+    private TextView mBottomTabNengHaoTv;
+    private TextView mBottomTabJianCeTv;
+    private TextView mBottomTabYunWeiTv;
     private LinearLayout mBottomTabShouYe;
     private LinearLayout mBottomTabNengHao;
     private LinearLayout mBottomTabJianCe;
@@ -39,11 +45,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mBottomTabNengHao = (LinearLayout) findViewById(R.id.bottom_tab_nenghao);
         mBottomTabJianCe = (LinearLayout) findViewById(R.id.bottom_tab_jiance);
         mBottomTabYunWei = (LinearLayout) findViewById(R.id.bottom_tab_yunwei);
+        mBottomTabShouYeTv = (TextView) findViewById(R.id.bottom_tab_shouye_tv);
+        mBottomTabNengHaoTv = (TextView) findViewById(R.id.bottom_tab_nenghao_tv);
+        mBottomTabJianCeTv = (TextView) findViewById(R.id.bottom_tab_jiance_tv);
+        mBottomTabYunWeiTv = (TextView) findViewById(R.id.bottom_tab_yunwei_tv);
         mFragmentBaseLayout = (ViewPager) findViewById(R.id.fragment_base_layout);
         MainFragmentPagerAdapter adapter = new MainFragmentPagerAdapter(this.getSupportFragmentManager());
         mFragmentBaseLayout.setAdapter(adapter);
         mFragmentBaseLayout.addOnPageChangeListener(this);
         mBottomTab = new LinearLayout[]{mBottomTabShouYe, mBottomTabNengHao, mBottomTabJianCe, mBottomTabYunWei};
+        mBottomTabTv = new TextView[]{mBottomTabShouYeTv,mBottomTabNengHaoTv,mBottomTabJianCeTv,mBottomTabYunWeiTv};
 //        Tools.logD("tab数组长度 = " + mBottomTab.length);
         for (int i = 0; i < mBottomTab.length; i++) {
             mBottomTab[i].setOnClickListener(this);
@@ -116,9 +127,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onPageSelected(int position) {
         for (int i = 0; i < 4; i++) {
             if (position == i) {
-                mBottomTab[i].setBackgroundColor(Color.argb(150, 20, 200, 240));
+                mBottomTab[i].setBackgroundColor(getResources().getColor(R.color.colorBottomBlue));
+                mBottomTabTv[i].setTextColor(getResources().getColor(R.color.colorTextBlue));
             } else {
                 mBottomTab[i].setBackgroundColor(Color.argb(255, 255, 255, 255));
+                mBottomTabTv[i].setTextColor(Color.GRAY);
             }
         }
     }

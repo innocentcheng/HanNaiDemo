@@ -1,7 +1,9 @@
 package com.example.scada.hannaidemo.untils;
 
 import android.content.Context;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.util.TypedValue;
 import android.widget.Toast;
 
 import java.io.Closeable;
@@ -31,5 +33,18 @@ public class Tools {
         }catch (IOException e){
             e.printStackTrace();
         }
+    }
+
+    public static void sleep(long millis){
+        try {
+            Thread.sleep(millis*1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static int dip(Context context, int dp) {
+        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, displayMetrics);
     }
 }

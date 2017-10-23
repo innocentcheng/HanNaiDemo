@@ -9,6 +9,13 @@
         android:layout_height="200dp"
         android:background="@color/colorAccent"/>
     <LinearLayout
+        android:id="@+id/fragment_main_topVp_circle"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:orientation="horizontal">
+    </LinearLayout>
+    <LinearLayout
         android:id="@+id/Linear1"
         android:layout_marginTop="150dp"
         android:layout_marginLeft="10dp"

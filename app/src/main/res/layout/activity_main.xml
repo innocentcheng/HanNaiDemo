@@ -28,7 +28,7 @@
                 android:layout_height="50dp">
                 <LinearLayout
                     android:padding="5dp"
-                    android:background="#9614faf0"
+                    android:background="@color/colorBottomBlue"
                     android:id="@+id/bottom_tab_shouye"
                     android:gravity="center"
                     android:orientation="vertical"
@@ -40,7 +40,9 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp" />
                     <TextView
+                        android:id="@+id/bottom_tab_shouye_tv"
                         android:text="首页"
+                        android:textColor="@color/colorTextBlue"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                 </LinearLayout>
@@ -57,6 +59,7 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp" />
                     <TextView
+                        android:id="@+id/bottom_tab_nenghao_tv"
                         android:text="能耗"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -74,6 +77,7 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp" />
                     <TextView
+                        android:id="@+id/bottom_tab_jiance_tv"
                         android:text="监测"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
@@ -91,6 +95,7 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp" />
                     <TextView
+                        android:id="@+id/bottom_tab_yunwei_tv"
                         android:text="运维"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
