@@ -1,6 +1,7 @@
 package com.example.scada.hannaidemo.untils;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
@@ -46,5 +47,9 @@ public class Tools {
     public static int dip(Context context, int dp) {
         DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, displayMetrics);
+    }
+    public static float dipToPixel(float dip) {
+        DisplayMetrics metrics = Resources.getSystem().getDisplayMetrics();
+        return dip * metrics.density;
     }
 }

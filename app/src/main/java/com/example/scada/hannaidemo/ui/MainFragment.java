@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.example.scada.hannaidemo.R;
 import com.example.scada.hannaidemo.untils.Tools;
+import com.example.scada.hannaidemo.view.RinglikeView;
 
 /**
  * Created by Scada on 2017/10/19.
@@ -177,10 +178,17 @@ public class MainFragment extends Fragment implements ViewPager.OnPageChangeList
     private class MainFragmentCenterPagerAdapter extends PagerAdapter {
         private LayoutInflater layoutInflater = LayoutInflater.from(getContext());
         private View[] mView;
+        private RinglikeView mRinglikeView;
 
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
             View viewDL = layoutInflater.inflate(R.layout.fragment_main_dianliang, null);
+            mRinglikeView = (RinglikeView) viewDL.findViewById(R.id.fragment_main_dl_ringlike);
+            mRinglikeView.setPeakAngle(190);
+            mRinglikeView.setTroughAngle(140);
+            mRinglikeView.setSpikeAngle(10);
+            mRinglikeView.setFlatAngle(20);
+            mRinglikeView.setTotal(66064);
             View viewFH = layoutInflater.inflate(R.layout.fragment_main_fuhe, null);
             mView = new View[]{viewDL, viewFH};
             container.addView(mView[position]);
